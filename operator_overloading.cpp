@@ -23,8 +23,10 @@ public:
     }
 
     // Overloaded << operator to print a complex number
-    friend std::ostream& operator<<(std::ostream& os, const Complex& num) {
-        os << num.real;
+    //friend function allows to access the private members of class.The return type of the function is a reference to std::ostream. 
+    //This allows you to chain multiple << operators.
+friend std::ostream& operator<<(std::ostream& os, const Complex& num) {   //os ha ostream cha object create kela
+        os << num.real;                //just like cout we use os
         if (num.imag >= 0) {
             os << " + " << num.imag << "i";
         } else {
@@ -34,7 +36,7 @@ public:
     }
 
     // Overloaded >> operator to read a complex number
-    friend std::istream& operator>>(std::istream& is, Complex& num) {
+    friend std::istream& operator>>(std::istream& is, Complex& num) {  //is ha istream cha object ahe
         std::cout << "Enter real part: ";
         is >> num.real;
         std::cout << "Enter imaginary part: ";
