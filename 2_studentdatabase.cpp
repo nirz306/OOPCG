@@ -36,7 +36,7 @@ class Student
         	this->tele = rno;
         }
 
-	    Student(const Student &s1) //Copy Constructor
+	    Student( Student &s1) //Copy Constructor created
 	    {
 	        name = s1.name;
 	        cls = s1.cls;
@@ -90,7 +90,7 @@ class Student
 	    }
 
 	
-		inline void display()
+		inline void display()			//inline function
 		{
 			cout<<left<<setw(30)<<name<<setw(30)<<cls<<setw(30)<<bldgrp<<setw(30)<<add<<setw(30)<<drvlic<<setw(30)<<dob<<setw(30)<<rno<<setw(30)<<tele<<endl;
 		}
@@ -103,20 +103,20 @@ class Student
     friend class Hello;
 };
 
-class Hello
+class Hello  //use of friend class
 {
     public:
-        void display(Student &s)
+        void display_name(Student &s)
         {	
 			cout<<"Hello"<<s.name<<endl;
-       }
+       	}
 };
 
 int Student::count=0;  //by syntax
 int main()
 {
 	Student s1,s2,s3,s4;
-	Hello h1,h2,h3,h4;
+	Hello h1,h2,h3,h4,h5;
 	s1.input();
 	Student::incrementCount();
 	s2.input();
@@ -125,11 +125,25 @@ int main()
 	Student::incrementCount();
 	s4.input();
 	Student::incrementCount();
+	Student s5(s4);                        //copy conctructor    called
+	Student::incrementCount();
+	
 	cout<<left<<setw(30)<<"NAME"<<setw(30)<<"CLASS"<<setw(30)<<"BLOOD GROUP"<<setw(30)<<"ADDRESS"<<setw(30)<<"DRIVING LIC NO"<<setw(30)<<"DATE OF BIRTH"<<setw(30)<<"ROLL NO"<<setw(30)<<"TELEPHONE"<<"\n============================================================================================="<<endl;
-	h1.display(s1);
-	h2.display(s2);
-	h3.display(s3);
-	h4.display(s4);
+	
+	s1.display();
+	s2.display();
+	s3.display();
+	s4.display();
+	cout<<"copying the details of the 4th student "<<endl;
+	s5.display();
+	cout<<"--------------------------------------------------------------------"<<endl;
+	
+	h1.display_name(s1);
+	h2.display_name(s2);
+	h3.display_name(s3);
+	h4.display_name(s4);
+	h5.display_name(s5);
+	
 	Hello *h = new Hello[3];
 	delete [] h;
 }
