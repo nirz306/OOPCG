@@ -6,7 +6,7 @@ using namespace std;
 class Student
 {
 	public:
-    string name ,cls, bldgrp, add, drvlic,dob;
+    	string name ,cls, bldgrp, add, drvlic,dob;
 	int rno;
 	long tele,tempS;
 
@@ -34,6 +34,7 @@ class Student
         	this->dob = dob;
         	this->rno = rno;
         	this->tele = rno;
+        	
         }
 
 	    Student( Student &s1) //Copy Constructor created
@@ -51,7 +52,7 @@ class Student
 	
 	    void input()
 	    {
-	        cout<<"Enter Name of Student: ";
+	        	cout<<"Enter Name of Student: ";
 			cin>>name;
 			cout<<"\nEnter Class: ";
 			cin>>cls;
@@ -87,6 +88,7 @@ class Student
 		}
 	}
 			cout<<"\n\n\n\n";
+			 incrementCount();                 //calling the static member function
 	    }
 
 	
@@ -108,7 +110,7 @@ class Hello  //use of friend class
     public:
         void display_name(Student &s)
         {	
-			cout<<"Hello"<<s.name<<endl;
+		cout<<"Hello"<<s.name<<endl;
        	}
 };
 
@@ -118,15 +120,10 @@ int main()
 	Student s1,s2,s3,s4;
 	Hello h1,h2,h3,h4,h5;
 	s1.input();
-	Student::incrementCount();
 	s2.input();
-	Student::incrementCount();
-	s3.input();
-	Student::incrementCount();
-	s4.input();
-	Student::incrementCount();
-	Student s5(s4);                        //copy conctructor    called
-	Student::incrementCount();
+ 	s3.input();
+ 	s4.input();
+ 	Student s5(s4);                        //copy conctructor    called
 	
 	cout<<left<<setw(30)<<"NAME"<<setw(30)<<"CLASS"<<setw(30)<<"BLOOD GROUP"<<setw(30)<<"ADDRESS"<<setw(30)<<"DRIVING LIC NO"<<setw(30)<<"DATE OF BIRTH"<<setw(30)<<"ROLL NO"<<setw(30)<<"TELEPHONE"<<"\n============================================================================================="<<endl;
 	
