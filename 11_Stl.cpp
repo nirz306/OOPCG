@@ -32,7 +32,7 @@ void insert();
 void search();
 void dlt();
 
-bool compare(const Item &i1, const Item &i2)
+bool compare(const Item &i1, const Item &i2)  //takes 2 arg from line 70
 {
  return i1.cost < i2.cost;
 }
@@ -67,7 +67,7 @@ int main()
      break;
 
      case 4:
-     sort(o1.begin(),o1.end(),compare);
+     sort(o1.begin(),o1.end(),compare);        //calls the functions at 35
      cout<<"\n\n Sorted on Cost";
      display();
      break;
