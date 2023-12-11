@@ -10,7 +10,9 @@ class Item
          int quantity;
          int cost;
          int code;
-         
+
+     //it is necessary to use this comparision operator to use "find" function in search()
+
     bool operator==(const Item& i1)
      {
      if(code==i1.code)
